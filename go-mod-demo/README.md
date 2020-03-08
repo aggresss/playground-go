@@ -21,7 +21,7 @@ GO111MODULE 有三个值：off, on和auto（默认值）。
 	- 当前目录在GOPATH/src之外且该目录包含go.mod文件
 	- 当前文件在包含go.mod文件的目录下面。
 
-当modules 功能启用时，依赖包的存放位置变更为`$GOPATH/pkg/`，允许同一个 package 多个版本并存，且多个项目可以共享缓存的 module。
+当modules 功能启用时，依赖包的存放位置变更为`$GOPATH/pkg/mod/`，允许同一个 package 多个版本并存，且多个项目可以共享缓存的 module。
 
 
 ### go mod

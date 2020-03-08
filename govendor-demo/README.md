@@ -1,5 +1,8 @@
 ## govendor-demo
 
+go 依赖包搜索顺序为 `vendor` => `$GOROOT` => `$GOPATH`
+
+下载 govendor
 
 ```
 go get -u -v github.com/kardianos/govendor
@@ -13,8 +16,7 @@ Operation:
 
 ```shell
 govendor init
-go get -u -v github.com/sirupsen/logrus
-govendor add +external
+govendor fetch +missing
 
 ```
 
