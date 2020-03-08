@@ -13,9 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-/vendor-demo/govendor/vendor/
-/vendor-demo/dep/vendor/
-/vendor-demo/go-mod/vendor/
+/vendor-demo/*/vendor/
+!/vendor-demo/govendor/vendor/vendor.json
 
 # tmp directory
 /tmp/
