@@ -8,6 +8,9 @@ go 依赖包搜索顺序为 `vendor` => `$GOROOT` => `$GOPATH`
 go get -u -v github.com/kardianos/govendor
 ```
 
+特征文件 `vendor/vendor.json`
+
+
 >Go 1.6以上版本默认开启 `GO15VENDOREXPERIMENT` 环境变量，可忽略该步骤。
 通过设置环境变量 `GO15VENDOREXPERIMENT=1` 使用 vendor 文件夹构建文件。
 可以选择 `export GO15VENDOREXPERIMENT=1` 或 `GO15VENDOREXPERIMENT=1 go build` 执行编译

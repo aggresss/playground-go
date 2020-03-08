@@ -6,8 +6,10 @@
 go mod init
 go mod vendor
 ```
-相对于 `govendor`，`go mod` 会自动分析当前模块的外部依赖并缓存到 `$GOPATH/pkg/` 下面，省去了手动  `go get` 的过程
 
+`go mod` 会自动分析当前模块的外部依赖并缓存到 `$GOPATH/pkg/` 下面
+
+特征文件 `go.mod` `go.sum`
 
 ### GO111MODULE
 
