@@ -1,0 +1,4 @@
+package: github.com/aggresss/playground-go/vendor-demo/glide
+import:
+- package: github.com/sirupsen/logrus
+  version: v1.4.2
