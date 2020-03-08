@@ -72,3 +72,33 @@ GLOBAL OPTIONS:
    --version,-v           print the version
 ```
 
+glide 版本号规则说明
+
+```
+=: equal (aliasedto no operator)
+!=: not equal
+>: greater than
+<: less than
+>=: greater than or equal to
+<=: less than or equal to
+
+1.2 - 1.4.5 which is equivalent to >= 1.2, <=1.4.5
+2.3.4 - 4.5 which is equivalent to >= 2.3.4, <=4.5
+1.2.x is equivalent to >= 1.2.0, < 1.3.0
+
+>= 1.2.x is equivalent to >= 1.2.0
+<= 2.x is equivalent to < 3
+* is equivalent to >= 0.0.0
+
+~1.2.3 is equivalent to >= 1.2.3, < 1.3.0
+~1 is equivalent to >= 1, < 2
+~2.3 is equivalent to >= 2.3, < 2.4
+~1.2.x is equivalent to >= 1.2.0, < 1.3.0
+~1.x is equivalent to >= 1, < 2
+
+^1.2.3 is equivalent to >= 1.2.3, < 2.0.0
+^1.2.x is equivalent to >= 1.2.0, < 2.0.0
+^2.3 is equivalent to >= 2.3, < 3
+^2.x is equivalent to >= 2.0.0, < 3
+```
+

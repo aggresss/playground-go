@@ -15,6 +15,7 @@
 # vendor/
 /vendor-demo/*/vendor/**
 !/vendor-demo/*/vendor/vendor.json
+!/vendor-demo/*/vendor/manifest
 
 # tmp directory
 /tmp/
