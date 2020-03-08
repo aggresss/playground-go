@@ -13,8 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
-/vendor-demo/*/vendor/
 !/vendor-demo/govendor/vendor/vendor.json
+/vendor-demo/*/vendor/
 
 # tmp directory
 /tmp/
