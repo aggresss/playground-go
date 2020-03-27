@@ -12,7 +12,7 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
 /vendor-demo/*/vendor/**
 !/vendor-demo/*/vendor/vendor.json
 !/vendor-demo/*/vendor/manifest
