@@ -5,10 +5,26 @@ import (
 	"reflect"
 )
 
+// Animal struct
+type Animal struct {
+	Gender string
+}
+
+// GetGender method
+func (a Animal) GetGender() string {
+	return a.Gender
+}
+
+// SetGender method
+func (a Animal) SetGender(s string) {
+	a.Gender = s
+}
+
 // Person test struct
 type Person struct {
 	Name string
 	Age  int
+	Animal
 }
 
 // GetName method
@@ -21,7 +37,7 @@ func (p Person) SetName(s string) {
 	p.Name = s
 }
 func main() {
-	a := &Person{"Name", 1}
+	a := &Person{"Jagger", 1, Animal{"male"}}
 
 	t := reflect.TypeOf(*a) //必须取值，否则类型为空
 	fmt.Println(t.Name())
@@ -39,6 +55,7 @@ func main() {
 		val := v.Method(i)
 		fmt.Println(key.Name, val.Type(), val.Interface())
 	}
+
 	v.FieldByName("Name").Set(reflect.ValueOf("Name"))
 	fmt.Println(a.Name)
 	name := v.MethodByName("GetName").Call([]reflect.Value{})
