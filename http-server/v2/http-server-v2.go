@@ -7,18 +7,21 @@ import (
 
 func main() {
 	mux := http.NewServeMux()
-	mux.Handle("/", &myHandler{})
-	mux.HandleFunc("/bye", sayBye)
+	mux.Handle("/", &myHandler1{})
+	mux.Handle("/foo", &myHandler2{})
 
-	log.Println("Starting v2 httpserver")
+	log.Println("Starting httpserver v2")
 	log.Fatal(http.ListenAndServe(":8080", mux))
 }
 
-type myHandler struct{}
+type myHandler1 struct{}
 
-func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("this is version 2"))
+func (*myHandler1) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("httpserver v2"))
 }
-func sayBye(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("bye bye ,this is v2 httpServer"))
+
+type myHandler2 struct{}
+
+func (*myHandler2) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("foo"))
 }
