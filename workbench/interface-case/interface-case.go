@@ -51,6 +51,8 @@ func (e Employee) SayHi() {
 }
 
 // Lawyer struct
+// 我们把interface作为struct的一个匿名成员
+// 就可以假设struct就是此成员interface的一个实现，而不管struct是否已经实现interface所定义的函数
 type Lawyer struct {
 	office string
 	level  int
