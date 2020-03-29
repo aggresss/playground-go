@@ -20,5 +20,4 @@ func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	default:
 		w.Write([]byte("httpserver v3"))
 	}
-
 }
