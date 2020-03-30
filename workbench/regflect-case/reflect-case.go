@@ -56,7 +56,7 @@ func main() {
 		fmt.Println(key.Name, val.Type(), val.Interface())
 	}
 
-	v.FieldByName("Name").Set(reflect.ValueOf("Name"))
+	v.FieldByName("Name").Set(reflect.ValueOf("ChangedName"))
 	fmt.Println(a.Name)
 	name := v.MethodByName("GetName").Call([]reflect.Value{})
 	fmt.Println(name)
