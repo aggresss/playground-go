@@ -11,6 +11,7 @@ type Product struct {
 	Number    int     `json:"number,string"`
 	Price     float64 `json:"price,string"`
 	IsOnSale  bool    `json:"is_on_sale,string"`
+	PrivateID int64   `json:"-"` // 表示不进行序列化
 }
 
 func main() {
