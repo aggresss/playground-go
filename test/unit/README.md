@@ -1,17 +1,17 @@
 
 
-## Table-driven tests
+## Table-driven Tests
 
 https://github.com/golang/go/wiki/TableDrivenTests
 
-## operation
+## Operation
 
 ```shell
 go test ./...
 go test -benchmem -bench=.
 ```
 
-## benchmark illustration
+## Benchmark Illustration
 ```
 go test -benchmem -bench=.
 goos: darwin
