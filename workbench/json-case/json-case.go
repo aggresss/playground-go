@@ -16,6 +16,7 @@ type Product struct {
 	Number    int     `json:"number,string"`
 	Price     float64 `json:"price,string"`
 	IsOnSale  bool    `json:"is_on_sale,string"`
+	IsRepo    bool    `json:"is_repo"`
 	PrivateID int64   `json:"-"` // 表示不进行序列化
 }
 
