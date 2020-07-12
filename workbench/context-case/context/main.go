@@ -11,8 +11,8 @@ func main() {
 	go func(ctx context.Context) {
 		for {
 			select {
-			case <-ctx.Done():
-				fmt.Println("task stopped")
+			case _, ok := <-ctx.Done():
+				fmt.Println("task stopped", ok)
 				return
 			default:
 				fmt.Println("task running")
