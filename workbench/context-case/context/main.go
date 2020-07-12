@@ -7,7 +7,8 @@ import (
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
+	// ctx, cancel := context.WithCancel(context.Background())
+	ctx, cancel := context.WithTimeout(context.Background(), 5000*time.Millisecond)
 	go func(ctx context.Context) {
 		for {
 			select {
