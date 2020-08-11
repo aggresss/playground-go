@@ -11,5 +11,6 @@ go get github.com/golang/mock/gomock
 ```
 mkdir mock
 mockgen -source=./infra/db.go -destination=./mock/mock_repository.go -package=mock
-
+go test -coverprofile=cover.out .
+go tool cover -html=cover.out
 ```
