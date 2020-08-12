@@ -1,12 +1,10 @@
 package MySQL
 
 import (
+	"fmt"
 	"testing"
 
 	mockDB "github.com/aggresss/playground-go/test/gomock/mock"
-
-	"fmt"
-
 	"github.com/golang/mock/gomock"
 )
 
