@@ -13,19 +13,19 @@ func main() {
 	t = functionOfSomeType()
 	switch t := t.(type) {
 	default:
-		fmt.Printf("unexpected type %T", t) // %T prints whatever type t has
+		fmt.Printf("unexpected type %T\n", t)
 		break
 	case bool:
-		fmt.Printf("boolean %t\n", t) // t has type bool
+		fmt.Printf("boolean %t\n", t)
 		break
 	case int:
-		fmt.Printf("integer %d\n", t) // t has type int
+		fmt.Printf("integer %d\n", t)
 		break
 	case *bool:
-		fmt.Printf("pointer to boolean %t\n", *t) // t has type *bool
+		fmt.Printf("pointer to boolean %t\n", *t)
 		break
 	case *int:
-		fmt.Printf("pointer to integer %d\n", *t) // t has type *int
+		fmt.Printf("pointer to integer %d\n", *t)
 		break
 	}
 }
