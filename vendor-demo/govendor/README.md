@@ -20,7 +20,8 @@ Operation:
 ```shell
 govendor init
 govendor fetch +missing
-
+# or
+govendor fetch  gopkg.in/mgo.v2/bson
 ```
 
 命令 | 功能
