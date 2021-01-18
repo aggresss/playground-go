@@ -23,8 +23,8 @@ type myHandler struct{}
 
 func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// skeleton
-	fmt.Printf("Request time %d\n", time.Now().Unix())
-	fmt.Printf("Method: %s, ContentLength: %d\n", r.Method, r.ContentLength)
+	log.Printf("[Unix-Timestamp]: %d\n", time.Now().Unix())
+	fmt.Printf("Method: %s\nContentLength: %d\n", r.Method, r.ContentLength)
 	// header
 	fmt.Printf("Header:\n")
 	for k, v := range r.Header {
