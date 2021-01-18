@@ -15,13 +15,13 @@ const (
 func main() {
 	mux := new(myHandler)
 	log.Printf(`Starting httpserver stub, listen %s`, listenAddr)
+	fmt.Println("==========================================")
 	log.Fatal(http.ListenAndServe(listenAddr, mux))
 }
 
 type myHandler struct{}
 
 func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("==========================================")
 	// skeleton
 	fmt.Printf("Request time %d\n", time.Now().Unix())
 	fmt.Printf("Method: %s, ContentLength: %d\n", r.Method, r.ContentLength)
