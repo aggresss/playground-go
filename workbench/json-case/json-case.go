@@ -18,6 +18,7 @@ type Product struct {
 	IsOnSale  bool    `json:"is_on_sale,string"`
 	IsRepo    bool    `json:"is_repo"`
 	PrivateID int64   `json:"-"` // 表示不进行序列化
+	Note      string
 }
 
 func main() {
@@ -26,7 +27,8 @@ func main() {
 		"product_id":"10",
 		"number":"10000",
 		"price":"2499",
-		"is_on_sale":"true"
+		"is_on_sale":"true",
+		"note":"foobar"
 		}`
 
 	p1 := &Product{}
