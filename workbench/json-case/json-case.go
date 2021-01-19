@@ -37,6 +37,12 @@ func main() {
 	}
 	fmt.Printf("%#v\n", p1)
 
+	b, err2 := json.Marshal(p1)
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+	fmt.Printf("%s\n", b)
+
 	p2 := new(Product)
 	if err2 := json.NewDecoder(strings.NewReader(data)).Decode(p2); err2 != nil {
 		log.Fatalln(err2)
