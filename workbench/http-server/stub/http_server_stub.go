@@ -28,7 +28,7 @@ func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// header
 	fmt.Printf("Header:\n")
 	for k, v := range r.Header {
-		fmt.Printf("\tField: %q, Value: %q\n", k, v)
+		fmt.Printf("\t%q: %q\n", k, v)
 	}
 	// body
 	body, err := ioutil.ReadAll(r.Body)
