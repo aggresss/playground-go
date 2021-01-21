@@ -36,7 +36,9 @@ func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("Body:\n%s\n", string(body))
 	}
 	// response
+	w.Header().Set("Content-Type", "text/plain")
 	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(r.RemoteAddr))
 	// EOF
 	fmt.Println("==========================================")
 }
