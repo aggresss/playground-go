@@ -23,8 +23,9 @@ type myHandler struct{}
 
 func (*myHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	// skeleton
-	log.Printf("[Unix-Timestamp]: %d\n", time.Now().Unix())
-	fmt.Printf("Method: %s\nURI: %s\nContentLength: %d\nRemoteAddr: %s\n", r.Method, r.RequestURI, r.ContentLength, r.RemoteAddr)
+	log.Printf("[Unix-Timestamp]: %d\n", time.Now().UnixNano()/1e6)
+	fmt.Printf("RemoteAddr: %s\n", r.RemoteAddr)
+	fmt.Printf("Method: %s\nURI: %s\nContentLength: %d\n", r.Method, r.RequestURI, r.ContentLength)
 	// header
 	fmt.Printf("Header:\n")
 	for k, v := range r.Header {
