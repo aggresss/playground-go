@@ -21,7 +21,7 @@ type Product struct {
 	Note      string
 }
 
-func main() {
+func test1() {
 	var data = `{
 		"name":"Xiao mi 6",
 		"product_id":"10",
@@ -49,4 +49,56 @@ func main() {
 	}
 	fmt.Printf("%#v\n", p2)
 
+}
+
+type A struct {
+	X int `json:"X"`
+	Z int `json:"Z"`
+}
+
+type B struct {
+	Y int `json:"Y"`
+	Z int `json:"Z"`
+}
+
+type User struct {
+	ID string
+	A
+	B
+}
+
+func test2() {
+	s1 := User{
+		ID: "admin",
+		A: A{
+			X: 1,
+			Z: 2,
+		},
+		B: B{
+			Y: 5,
+			Z: 6,
+		},
+	}
+	fmt.Printf("%+v\n", s1)
+
+	b, err := json.Marshal(s1)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Printf("%s\n", b)
+	}
+
+	testJson := `{"ID":"admin","X":1,"Y":2,"Z":6}`
+
+	s2 := User{}
+	err = json.Unmarshal([]byte(testJson), &s2)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Printf("%+v\n", s2)
+	}
+}
+
+func main() {
+	test2()
 }
