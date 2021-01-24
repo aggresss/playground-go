@@ -62,7 +62,8 @@ type B struct {
 }
 
 type User struct {
-	ID string
+	ID string `json:"ID"`
+	Z  int    `json:"Z"`
 	A
 	B
 }
@@ -70,6 +71,7 @@ type User struct {
 func test2() {
 	s1 := User{
 		ID: "admin",
+		Z:  9,
 		A: A{
 			X: 1,
 			Z: 2,
@@ -79,23 +81,22 @@ func test2() {
 			Z: 6,
 		},
 	}
-	fmt.Printf("%+v\n", s1)
+	fmt.Printf("test2_01: %+v\n", s1)
 
 	b, err := json.Marshal(s1)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("%s\n", b)
+		fmt.Printf("test2_02: %s\n", b)
 	}
 
-	testJson := `{"ID":"admin","X":1,"Y":2,"Z":6}`
-
+	testJson := `{"ID":"admin","X":1,"Y":5,"Z":9}`
 	s2 := User{}
 	err = json.Unmarshal([]byte(testJson), &s2)
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("%+v\n", s2)
+		fmt.Printf("test2_03: %#v\n", s2)
 	}
 }
 
