@@ -1,2 +1,2 @@
 all:
-	go build -tags dev -o dev main.go
+	go build -tags windows -o dev.exe main.go
