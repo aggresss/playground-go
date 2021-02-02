@@ -1,6 +1,6 @@
 // +build linux
 
-package hello
+package osname
 
 // OsName string
 const OsName = "linux"

@@ -1,6 +1,6 @@
 // +build darwin
 
-package hello
+package osname
 
 // OsName string
 const OsName = "darwin"

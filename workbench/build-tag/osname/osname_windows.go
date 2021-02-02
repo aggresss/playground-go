@@ -1,6 +1,6 @@
 // +build windows
 
-package hello
+package osname
 
 // OsName string
 const OsName = "windows"
