@@ -51,6 +51,22 @@ func test_04() {
 	fmt.Println(a[1], len(a)) // 100 // 仍然引用原始内存
 }
 
+func test_05() {
+	var a []int = nil
+	var a0 []int = make([]int, 0)
+
+	fmt.Println(a == nil)  // true
+	fmt.Println(a0 == nil) // false
+
+	fmt.Printf("%#v\n", a)  // []int(nil) // nil slice
+	fmt.Printf("%#v\n", a0) // []int{} // empty slice
+	// Go wiki recommends using nil slices over empty slices
+	// Reference: https://yourbasic.org/golang/clear-slice
+	// Note that there are limited circumstances where a non-nil but zero-length slice is preferred,
+	// such as when encoding JSON objects
+	// (a nil slice encodes to null, while []string{} encodes to the JSON array []).
+}
+
 func main() {
 	test_04()
 }
