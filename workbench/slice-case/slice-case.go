@@ -5,6 +5,10 @@ package main
 
 // slice -> slice 的切片操作不会引起内存复制
 
+// Idioms
+// [:] => 创建一个新的引用
+// [:0] => reset slice
+
 import "fmt"
 
 func test_01() {
