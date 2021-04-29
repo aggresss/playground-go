@@ -100,6 +100,35 @@ func test2() {
 	}
 }
 
+type Person struct {
+	Name string
+	Age  int
+	Job  string
+}
+
+func test3() {
+	data := string(`
+    {
+      "type": "person",
+      "name":"dj",
+      "age":18,
+      "job": "programmer"
+    }
+  `)
+
+	var m map[string]interface{}
+	err := json.Unmarshal([]byte(data), &m)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("%#v\n", m)
+
+	switch m["type"].(string) {
+	case "person":
+		fmt.Println("Is a person")
+	}
+}
+
 func main() {
-	test2()
+	test3()
 }
