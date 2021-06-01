@@ -7,6 +7,15 @@ proto/profiling
 - Block Profiling
 - Mutex Profiling
 
+
+```
+go tool pprof http://127.0.0.1:8899/debug/pprof/xxx
+
+web
+top
+
+```
+
 ### Reference
 
 - https://github.com/google/pprof
