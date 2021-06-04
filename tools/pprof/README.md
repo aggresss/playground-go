@@ -9,7 +9,7 @@ proto/profiling
 
 
 ```
-go tool pprof http://127.0.0.1:8899/debug/pprof/xxx
+go tool pprof http://127.0.0.1:6061/debug/pprof/xxx
 
 web
 top
@@ -17,7 +17,7 @@ top
 ```
 
 ```
-go tool pprof http://127.0.0.1:8080/debug/pprof/profile -seconds 30
+go tool pprof http://127.0.0.1:6061/debug/pprof/profile -seconds 30
 go tool pprof -http=:8081 ~/pprof/pprof.samples.cpu.001.pb.gz
 ```
 
