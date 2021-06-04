@@ -16,6 +16,11 @@ top
 
 ```
 
+```
+go tool pprof http://127.0.0.1:8080/debug/pprof/profile -seconds 30
+go tool pprof -http=:8081 ~/pprof/pprof.samples.cpu.001.pb.gz
+```
+
 ### Reference
 
 - https://github.com/google/pprof
