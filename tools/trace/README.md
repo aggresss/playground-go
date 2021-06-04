@@ -5,7 +5,7 @@ go run trace.go 2> trace.out
 ```
 
 ```
-wget -O trace.out http://127.0.0.1:6061/debug/pprof/trace?seconds=5
+curl -o trace.out "http://127.0.0.1:6061/debug/pprof/trace?seconds=30"
 go tool trace trace.out
 ```
 
