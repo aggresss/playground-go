@@ -7,11 +7,6 @@ import (
 	"strings"
 )
 
-type tho struct {
-	Epsilon int    `json:"epsilon"`
-	Zeta    string `json:"zeta"`
-}
-
 func transJsonTag(val interface{}) string {
 	ret := []string{}
 
@@ -24,11 +19,18 @@ func transJsonTag(val interface{}) string {
 	}
 	for i := 0; i < vo.NumField(); i++ {
 		fd := vo.Type().Field(i)
-		tn := fd.Tag.Get("json")
+		var tn string
+		if tn = fd.Tag.Get("json"); len(tn) == 0 {
+			continue
+		}
 		var tv string
 		switch fd.Type.Kind() {
-		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
-			reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+			tv = strconv.Itoa(int(vo.Field(i).Uint()))
+			if tv == "0" {
+				continue
+			}
+		case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 			tv = strconv.Itoa(int(vo.Field(i).Int()))
 			if tv == "0" {
 				continue
@@ -43,12 +45,4 @@ func transJsonTag(val interface{}) string {
 	}
 
 	return strings.Join(ret, ";")
-}
-
-func main() {
-	t := &tho{
-		Epsilon: 99,
-		Zeta:    "0",
-	}
-	fmt.Println(transJsonTag(t))
 }
