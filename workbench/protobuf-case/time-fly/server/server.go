@@ -60,6 +60,7 @@ func main() {
 			samples.Value = time.Now().UnixNano() - msg.GetUnixnano()
 			samples = samples.Next()
 			mutex.Unlock()
+			pool.Put(b)
 
 			select {
 			case <-ctx.Done():
