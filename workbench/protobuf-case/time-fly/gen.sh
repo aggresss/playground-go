@@ -1,0 +1,1 @@
+protoc --gogofaster_out=. timefly.proto

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message msg {
+    int64 unixnano = 1;
+}
