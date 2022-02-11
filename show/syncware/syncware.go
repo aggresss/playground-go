@@ -52,7 +52,7 @@ func (c *syncware) addReference() {
 
 func (c *syncware) delReference() {
 	atomic.AddInt32(&c.refCount, -1)
-	if atomic.LoadInt32(&c.refCount) == 0 {
+	if atomic.LoadInt32(&c.refCount) <= 0 {
 		c.close()
 	}
 }
