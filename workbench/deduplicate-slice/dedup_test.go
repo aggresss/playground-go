@@ -11,6 +11,10 @@ func TestDeduplicateStringSlice(t *testing.T) {
 		input    []string
 		expected []string
 	}{
+		"nil": {
+			input:    nil,
+			expected: nil,
+		},
 		"blank": {
 			input:    []string{},
 			expected: []string{},
