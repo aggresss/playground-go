@@ -4,7 +4,6 @@ import "fmt"
 
 func main() {
 	var arr = []string{"hello", "hi", "world", "hi", "china", "hello", "hi"}
-	fmt.Println(RemoveDuplicationElement(arr))
 	fmt.Println(RemoveRepeatedElement(arr))
 }
 
@@ -25,17 +24,19 @@ func RemoveRepeatedElement(arr []string) (newArr []string) {
 	return
 }
 
-func RemoveDuplicationElement(arr []string) []string {
-	set := make(map[string]struct{}, len(arr))
+// DeduplicateStringSlice deduplicate string slice
+func DeduplicateStringSlice(input []string) (output []string) {
+	set := make(map[string]struct{}, len(input))
 	j := 0
-	for _, v := range arr {
+	for _, v := range input {
 		if _, ok := set[v]; ok {
 			continue
 		}
 		set[v] = struct{}{}
-		arr[j] = v
+		input[j] = v
 		j++
 	}
+	output = input[:j]
 
-	return arr[:j]
+	return output
 }
