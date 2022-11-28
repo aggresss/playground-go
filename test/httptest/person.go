@@ -28,7 +28,7 @@ func GetInfo(api string) ([]Person, error) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return []Person{}, fmt.Errorf("get info didn’t respond 200 OK: %s", resp.Status)
+		return []Person{}, fmt.Errorf("get info didn't respond 200 OK: %s", resp.Status)
 	}
 
 	bodyBytes, _ := ioutil.ReadAll(resp.Body)
