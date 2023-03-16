@@ -18,7 +18,7 @@ func main() {
 
 		for _, file := range files {
 			log.Println(file.Filename)
-			ctx.SaveUploadedFile(file, "./")
+			ctx.SaveUploadedFile(file, file.Filename)
 		}
 		ctx.String(http.StatusOK, fmt.Sprintf("%d files uploaded!", len(files)))
 	})
@@ -27,7 +27,7 @@ func main() {
 }
 
 /*
-curl --trace -X POST http://localhost:8080/upload \
+curl --trace test.log -X POST http://localhost:8080/upload \
   -F "upload[]=@${PWD}/1.log" \
   -F "upload[]=@${PWD}/2.log" \
   -H "Content-Type: multipart/form-data"
