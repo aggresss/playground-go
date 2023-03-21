@@ -15,16 +15,17 @@ func (t *T) Geeks(foo string) {
 }
 
 func main() {
-	tType := reflect.TypeOf(&T{})
-	tValue := reflect.ValueOf(&T{})
+	t := &T{}
+	tType := reflect.TypeOf(t)
+	tValue := reflect.ValueOf(t)
 	// use cache instead of MethodByName()
-	cache := make(map[string]reflect.Value)
+	cache := make(map[string]int)
 	for i := 0; i < tValue.NumMethod(); i++ {
 		if tType.Method(i).IsExported() {
-			cache[tType.Method(i).Name] = tValue.Method(i)
+			cache[tType.Method(i).Name] = i
 		}
 	}
-	if m, ok := cache["Geeks"]; ok {
-		m.Call([]reflect.Value{reflect.ValueOf("admin")})
+	if i, ok := cache["Geeks"]; ok {
+		tValue.Method(i).Call([]reflect.Value{reflect.ValueOf("admin")})
 	}
 }
