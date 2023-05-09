@@ -1,6 +1,56 @@
 go 1.20
 
 use (
+	./show
+	./test/goconvey
+	./test/gomock
+	./test/gomock2
+	./test/httptest
+	./test/testify
+	./test/unit
+	./tools/pprof
+	./tools/trace
+	./workbench/bson-case
 	./workbench/build-tag
 	./workbench/clock-case
+	./workbench/closure-case
+	./workbench/container-case
+	./workbench/context-case
+	./workbench/crypto-case
+	./workbench/deduplicate-slice
+	./workbench/defer-panic-recover
+	./workbench/done-chan
+	./workbench/embedded-case
+	./workbench/errors-demo
+	./workbench/exec-command
+	./workbench/file-case
+	./workbench/generic-case
+	./workbench/gin-case
+	./workbench/go-memory
+	./workbench/go-ping
+	./workbench/gomod-hello
+	./workbench/goroutine-case
+	./workbench/grpc-case
+	./workbench/http-server
+	./workbench/httptest-case
+	./workbench/interface-case
+	./workbench/io-case
+	./workbench/json-case
+	./workbench/net-case
+	./workbench/new-case
+	./workbench/panic-case
+	./workbench/prometheus-case
+	./workbench/protobuf-case
+	./workbench/qiniu-http-demo
+	./workbench/reflect-case
+	./workbench/select-case
+	./workbench/simple-api
+	./workbench/slice-case
+	./workbench/sync-case
+	./workbench/tcp-case
+	./workbench/test-case
+	./workbench/triple-dot-case
+	./workbench/type-assertion-case
+	./workbench/unsafe-case
+	./workbench/web-hello
 )
