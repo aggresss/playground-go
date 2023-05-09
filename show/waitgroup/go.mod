@@ -1,3 +1,3 @@
-module github.com/aggresss/playground/show/waitgroup
+module github.com/aggresss/playground-go/show/waitgroup
 
 go 1.20

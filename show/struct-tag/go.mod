@@ -1,3 +1,3 @@
-module github.com/aggresss/playground/show/struct-tag
+module github.com/aggresss/playground-go/show/struct-tag
 
 go 1.20

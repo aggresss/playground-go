@@ -1,3 +1,3 @@
-module github.com/aggresss/playground/show/syncware
+module github.com/aggresss/playground-go/show/syncware
 
 go 1.20
