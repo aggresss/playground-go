@@ -12,6 +12,7 @@ use (
 	./tools/trace
 	./workbench/bson-case
 	./workbench/build-tag
+	./workbench/cas-case
 	./workbench/clock-case
 	./workbench/closure-case
 	./workbench/container-case
