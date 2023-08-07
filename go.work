@@ -8,6 +8,7 @@ use (
 	./test/httptest
 	./test/testify
 	./test/unit
+	./tmp
 	./tools/pprof
 	./tools/trace
 	./workbench/bson-case
@@ -37,6 +38,7 @@ use (
 	./workbench/interface-case
 	./workbench/io-case
 	./workbench/json-case
+	./workbench/m7s-case
 	./workbench/net-case
 	./workbench/new-case
 	./workbench/panic-case
