@@ -1,6 +1,7 @@
 go 1.20
 
 use (
+	./algorithm/bundle
 	./show
 	./test/ginkgo
 	./test/goconvey
