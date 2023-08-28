@@ -1,5 +1,7 @@
 package bundle
 
+// Fork from https://github.com/Monibuca/engine/blob/v4/util/ring.go
+//
 // A Ring is an element of a circular list, or ring.
 // Rings do not have a beginning or end; a pointer to any ring element
 // serves as reference to the entire ring. Empty rings are represented
