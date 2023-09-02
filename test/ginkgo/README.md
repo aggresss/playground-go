@@ -6,4 +6,5 @@ go install github.com/onsi/ginkgo/v2/ginkgo@latest
 
 ginkgo bootstrap
 ginkgo generate book
+ginkgo -v
 ```
