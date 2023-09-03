@@ -15,7 +15,8 @@ package main
 #    error(unknown os)
 #endif
 
-#cgo !windows LDFLAGS: -L. -lsum
+#cgo !windows CFLAGS: -I${SRCDIR}
+#cgo !windows LDFLAGS: -L${SRCDIR} -lsum
 #include "sum.h"
 */
 import "C"
