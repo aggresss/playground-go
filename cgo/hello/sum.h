@@ -1,2 +1,5 @@
+typedef int SUM;
 
-int sum(int a, int b);
+typedef SUM *SUM_POINTER;
+
+int sum(SUM_POINTER *p, int a, int b);
