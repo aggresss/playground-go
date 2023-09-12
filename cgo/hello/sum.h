@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 typedef int SUM;
 
 typedef SUM *SUM_POINTER;

@@ -5,12 +5,16 @@ package main
 #include "sum.h"
 */
 import "C"
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 func main() {
 	a := C.int(10)
 	b := C.int(20)
 	var c C.SUM_POINTER
 	C.sum(&c, a, b)
-	fmt.Println(c)
+	fmt.Println(*c)
+	C.free(unsafe.Pointer(c))
 }
