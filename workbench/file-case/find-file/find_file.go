@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path"
 	"strings"
@@ -15,7 +14,7 @@ const (
 func main() {
 	f := "./vendor/vendor.json"
 	fp := path.Dir(f)
-	dir_list, e := ioutil.ReadDir(fp)
+	dir_list, e := os.ReadDir(fp)
 	if e != nil {
 		fmt.Println("read dir error")
 		return
