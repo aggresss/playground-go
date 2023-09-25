@@ -13,6 +13,7 @@ int Add(int a, int b) {
 import "C"
 import (
 	"fmt"
+	"os"
 	"unsafe"
 )
 
@@ -29,4 +30,6 @@ func dumpArray(array *C.uchar, length int) []byte {
 func main() {
 	c, err := C.Add(C.int(1), C.int(2))
 	fmt.Println(c, err)
+
+	fmt.Println(os.Getenv("PKG_CONFIG_PATH"))
 }
