@@ -2,7 +2,7 @@ go 1.20
 
 use (
 	./algorithm/bundle
-	./cgo/hello
+	./cgo
 	./show
 	./test/ginkgo
 	./test/goconvey
