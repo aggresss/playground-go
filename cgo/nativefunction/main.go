@@ -2,7 +2,11 @@ package main
 
 /*
 // preamble
+# include <stdio.h>
+# include <errno.h>
+
 int Add(int a, int b) {
+	errno = 1;
 	return a+b;
 }
 */
@@ -12,6 +16,7 @@ import (
 	"unsafe"
 )
 
+// C.GoBytes(unsafe.pointer, C.int) []byte
 func dumpArray(array *C.uchar, length int) []byte {
 	buf := make([]byte, length)
 	for i := 0; i < length; i++ {
@@ -22,6 +27,6 @@ func dumpArray(array *C.uchar, length int) []byte {
 }
 
 func main() {
-	c := C.Add(C.int(1), C.int(2))
-	fmt.Println(c)
+	c, err := C.Add(C.int(1), C.int(2))
+	fmt.Println(c, err)
 }
