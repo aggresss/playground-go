@@ -10,6 +10,8 @@ import (
 	"unsafe"
 )
 
+type Alpha C.struct_Alpha
+
 func main() {
 	a := C.int(10)
 	b := C.int(20)
@@ -17,4 +19,14 @@ func main() {
 	C.sum(&c, a, b)
 	fmt.Println(*c)
 	C.free(unsafe.Pointer(c))
+
+	C.print_struct_p((*C.struct_Alpha)(&Alpha{
+		beta:  1,
+		gamma: 2.0,
+	}))
+
+	C.print_struct((C.struct_Alpha)(Alpha{
+		beta:  3,
+		gamma: 4.0,
+	}))
 }
