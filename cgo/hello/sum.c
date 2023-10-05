@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "sum.h"
 
 int sum(SUM_POINTER *p, int a, int b) {
@@ -12,4 +13,16 @@ void print_struct_p(Alpha *a) {
 
 void print_struct(Alpha a) {
   printf("print_struct_p: %d,%f\n", a.beta, a.gamma);
+}
+
+Alpha return_struct(void) {
+  Alpha a = { 5, 6.0 };
+  return a;
+}
+
+Alpha* return_struct_point(void) {
+  Alpha *a = (Alpha *)malloc(sizeof(Alpha));
+  a->beta = 7;
+  a->gamma = 8.0;
+  return a;
 }

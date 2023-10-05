@@ -29,4 +29,10 @@ func main() {
 		beta:  3,
 		gamma: 4.0,
 	}))
+
+	d := C.return_struct()
+	fmt.Println(Alpha(d))
+
+	e := C.return_struct_point()
+	fmt.Println(e)
 }

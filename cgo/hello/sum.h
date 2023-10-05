@@ -19,4 +19,8 @@ void print_struct_p(Alpha *a);
 
 void print_struct(Alpha a);
 
+Alpha return_struct(void);
+
+Alpha* return_struct_point(void);
+
 #endif // SUM_H
