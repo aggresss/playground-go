@@ -39,4 +39,11 @@ func main() {
 
 	e := C.return_struct_point()
 	fmt.Println(e)
+
+	str := C.CString("admin")
+	defer C.free(unsafe.Pointer(str))
+	ptr := C.print_string(str)
+	if ptr == nil {
+		fmt.Println("ptr is nil")
+	}
 }

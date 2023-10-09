@@ -26,3 +26,8 @@ Alpha* return_struct_point(void) {
   a->gamma = 8.0;
   return a;
 }
+
+void* print_string(char* s) {
+    printf("%s\n", s);
+    return NULL;
+}
