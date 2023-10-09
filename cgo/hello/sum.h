@@ -23,4 +23,6 @@ Alpha return_struct(void);
 
 Alpha* return_struct_point(void);
 
+#define OMIGA 1UL << 31
+
 #endif // SUM_H

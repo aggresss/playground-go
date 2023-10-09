@@ -12,6 +12,10 @@ import (
 
 type Alpha C.struct_Alpha
 
+const (
+	OMIGA = int(C.OMIGA)
+)
+
 func main() {
 	a := C.int(10)
 	b := C.int(20)
