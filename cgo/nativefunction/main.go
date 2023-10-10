@@ -12,7 +12,7 @@ int Add(int a, int b) {
 	return a+b;
 }
 
-uint8_t buf[10] = {1,2,3,4,5,6,7,8,9,0};
+uint8_t buf[10] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x0A};
 
 */
 import "C"
@@ -20,6 +20,8 @@ import (
 	"fmt"
 	"os"
 	"unsafe"
+
+	"golang.org/x/exp/constraints"
 )
 
 // C.GoBytes(unsafe.pointer, C.int) []byte
@@ -48,6 +50,11 @@ func cuchar2Bytes(buf *uint8, size int) []byte {
 
 }
 
+func PointerOffset[U constraints.Integer](ptr *uint8, offset U) *uint8 {
+	// return (*uint8)(unsafe.Pointer(uintptr(unsafe.Pointer(ptr)) + uintptr(offset)))
+	return (*uint8)(unsafe.Add(unsafe.Pointer(uintptr(unsafe.Pointer(ptr))), offset))
+}
+
 func main() {
 	c, err := C.Add(C.int(1), C.int(2))
 	fmt.Println(c, err)
@@ -55,4 +62,6 @@ func main() {
 	fmt.Println(os.Getenv("PKG_CONFIG_PATH"))
 
 	fmt.Println(cuchar2Bytes((*uint8)(unsafe.Pointer(&C.buf)), 10))
+
+	fmt.Println(cuchar2Bytes(PointerOffset((*uint8)(unsafe.Pointer(&C.buf)), 2), 10-2))
 }
