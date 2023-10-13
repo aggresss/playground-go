@@ -24,7 +24,6 @@ func main() {
 	runtime.SetFinalizer(&st, func(t *C.myStruct) {
 		C.free(unsafe.Pointer(t.msg))
 	})
-
 	C.myFunc(&st)
 	runtime.KeepAlive(&st)
 }
