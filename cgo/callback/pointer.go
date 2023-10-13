@@ -15,19 +15,19 @@ var (
 	m sync.Map
 )
 
-func Save(v interface{}) unsafe.Pointer {
+func PointerStore(v interface{}) unsafe.Pointer {
 	if v == nil {
 		return nil
 	}
 	var ptr unsafe.Pointer = C.malloc(C.size_t(1))
 	if ptr == nil {
-		panic("can't allocate 'cgo-pointer hack index pointer': ptr == nil")
+		panic("allocate memory faild")
 	}
 	m.Store(ptr, v)
 	return ptr
 }
 
-func Restore(ptr unsafe.Pointer) (v interface{}) {
+func PointerLoad(ptr unsafe.Pointer) (v interface{}) {
 	if ptr == nil {
 		return nil
 	}
@@ -35,7 +35,7 @@ func Restore(ptr unsafe.Pointer) (v interface{}) {
 	return v
 }
 
-func Unref(ptr unsafe.Pointer) {
+func PointerDelete(ptr unsafe.Pointer) {
 	if ptr == nil {
 		return
 	}

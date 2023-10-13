@@ -37,13 +37,13 @@ type CCHAR C.char
 
 func main() {
 	data := errors.New("omicron")
-	C.call_later(1, (*C.callback)(C.go_cb), Save(&data))
+	C.call_later(1, (*C.callback)(C.go_cb), PointerStore(&data))
 	// ok: C.call_later(3, LocalCallback(C.go_cb))
 }
 
 //export go_cb
 func go_cb(a unsafe.Pointer, b *CCHAR, c C.int) C.int {
-	f := (Restore(a)).(*error)
+	f := (PointerLoad(a)).(*error)
 	fmt.Println(*f, b, c)
 	return 0
 }
