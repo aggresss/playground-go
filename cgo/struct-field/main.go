@@ -24,7 +24,9 @@ func main() {
 	runtime.SetFinalizer(&st, func(t *C.myStruct) {
 		C.free(unsafe.Pointer(t.msg))
 	})
+
 	C.myFunc(&st)
+	runtime.KeepAlive(&st)
 }
 
 // panic: runtime error: cgo argument has Go pointer to unpinned Go pointer
