@@ -6,16 +6,16 @@ package main
 
 #include <unistd.h>
 
-typedef void (*callback)(void*);
+typedef int (*callback)(void*, char*, int);
 
 static void call_later(int delay, callback cb) {
   sleep(delay);
   char* alpha = "beta";
   int gamma = 5;
-  cb(alpha);
+  cb(NULL, alpha, gamma);
 }
 
-void go_cb(void*);
+int go_cb(void*, char*, int);
 
 */
 import "C"
@@ -29,6 +29,7 @@ func main() {
 }
 
 //export go_cb
-func go_cb(a unsafe.Pointer) {
-	fmt.Println("admin")
+func go_cb(a unsafe.Pointer, b *C.char, c C.int) C.int {
+	fmt.Println(a, b, c)
+	return 0
 }
