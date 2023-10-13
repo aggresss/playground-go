@@ -1,5 +1,7 @@
 package main
 
+// Reference: https://github.com/mattn/go-pointer
+
 /*
 #include <stdlib.h>
 */
