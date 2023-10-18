@@ -30,14 +30,14 @@ import (
 )
 
 func variadic1(prefix, body string, a ...any) {
-	pPtr, pFunc := stringCasting(prefix)
+	pPtr, pFunc := StringCasting(prefix)
 	defer pFunc()
-	sPtr, sFunc := stringCasting(fmt.Sprintf(body, a...))
+	sPtr, sFunc := StringCasting(fmt.Sprintf(body, a...))
 	defer sFunc()
 	C.theta(pPtr, sPtr)
 }
 
-func stringCasting(str string) (allocPtr *C.char, freeFunc func()) {
+func StringCasting(str string) (allocPtr *C.char, freeFunc func()) {
 	if len(str) == 0 {
 		return nil, func() {}
 	}
