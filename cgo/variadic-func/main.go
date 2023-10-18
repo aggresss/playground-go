@@ -30,25 +30,23 @@ import (
 )
 
 func variadic1(prefix, body string, a ...any) {
-	pPtr, pFunc := StringCasting(prefix)
+	pPtr, pFunc := stringCasting(prefix)
 	defer pFunc()
-	sPtr, sFunc := StringCasting(fmt.Sprintf(body, a...))
+	sPtr, sFunc := stringCasting(fmt.Sprintf(body, a...))
 	defer sFunc()
 	C.theta(pPtr, sPtr)
 }
 
-func main() {
-	C.omicron()
-
-	variadic1("alpha", "beta&%s", "xi")
-
-}
-
-func StringCasting(str string) (allocPtr *C.char, freeFunc func()) {
+func stringCasting(str string) (allocPtr *C.char, freeFunc func()) {
 	if len(str) == 0 {
 		return nil, func() {}
 	}
 	allocPtr = C.CString(str)
 	freeFunc = func() { C.free(unsafe.Pointer(allocPtr)) }
 	return allocPtr, freeFunc
+}
+
+func main() {
+	C.omicron()
+	variadic1("alpha", "beta&%s", "xi")
 }
