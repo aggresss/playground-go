@@ -15,6 +15,14 @@ import (
 	"unsafe"
 )
 
+func sizeofInterface(a any) {
+	fmt.Println("sizeof interface", unsafe.Sizeof(a))
+}
+
+func sizeofGeneric[T any](a T) {
+	fmt.Println("sizeof generic", unsafe.Sizeof(a))
+}
+
 func go_size_of[T any](p *T) uintptr {
 	return unsafe.Sizeof(*p)
 }
@@ -26,4 +34,7 @@ func main() {
 	var p *int32
 	fmt.Println(unsafe.Sizeof(*p))
 	fmt.Println(go_size_of(p))
+
+	sizeofInterface(a)
+	sizeofGeneric(a)
 }
