@@ -46,14 +46,15 @@ func GenericPointer[T any](a *T) unsafe.Pointer {
 }
 
 func main() {
-	var i = 1
+	i := []int32{2, 3, 4, 5, 6, 7}
 
-	fmt.Println(VoidPointer(&i))
-	fmt.Println(unsafe.Pointer(VoidPointer(&i)))
-	fmt.Println(&i)
+	fmt.Println(VoidPointer(i))
+	fmt.Println(unsafe.Pointer(VoidPointer(i)))
+	fmt.Println(&i[0])
+	fmt.Println(i)
 	fmt.Println(i)
 
-	fmt.Println(GenericPointer(&i))
+	// fmt.Println(GenericPointer(i))
 
 	fmt.Println(reflect.ValueOf(nil).Kind())
 
