@@ -1,6 +1,7 @@
 package main
 
 // Reference: https://github.com/mattn/go-pointer
+// After g.1.17 use cgo.NewHandle() instead.
 
 /*
 #include <stdlib.h>
@@ -12,18 +13,18 @@ import (
 )
 
 var (
-	m sync.Map
+	pointerSyncMap sync.Map
 )
 
 func PointerStore(v interface{}) unsafe.Pointer {
 	if v == nil {
 		return nil
 	}
-	var ptr unsafe.Pointer = C.malloc(C.size_t(1))
+	ptr := C.malloc(C.size_t(1))
 	if ptr == nil {
-		panic("allocate memory faild")
+		panic("allocate memory failed")
 	}
-	m.Store(ptr, v)
+	pointerSyncMap.Store(ptr, v)
 	return ptr
 }
 
@@ -31,7 +32,7 @@ func PointerLoad(ptr unsafe.Pointer) (v interface{}) {
 	if ptr == nil {
 		return nil
 	}
-	v, _ = m.Load(ptr)
+	v, _ = pointerSyncMap.Load(ptr)
 	return v
 }
 
@@ -39,6 +40,6 @@ func PointerDelete(ptr unsafe.Pointer) {
 	if ptr == nil {
 		return
 	}
-	m.Delete(ptr)
+	pointerSyncMap.Delete(ptr)
 	C.free(ptr)
 }

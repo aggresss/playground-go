@@ -3,8 +3,8 @@ package main
 /*
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
 
-typedef int* intp;
 
 typedef int (callback)(void*, char*, int);
 
@@ -15,7 +15,24 @@ static void call_later(int delay, callback *cb, void* data) {
   cb(data, alpha, gamma);
 }
 
-int go_cb(void*, char*, int);
+extern int go_cb(void*, char*, int);
+
+
+// https://zchee.github.io/golang-wiki/cgo/#export-and-definition-in-preamble
+// normally you will have to define function or variables
+// in another separate C file to avoid the multiple definition
+// errors, however, using "static inline" is a nice workaround
+// for simple functions like this one.
+
+static int hw_pix_fmt = 5;
+
+static inline int get_hw_pix_fmt() {
+	return hw_pix_fmt;
+}
+
+static inline void set_hw_pix_fmt(int fmt) {
+	hw_pix_fmt = fmt;
+}
 
 */
 import "C"
@@ -39,6 +56,8 @@ func main() {
 	data := errors.New("omicron")
 	C.call_later(1, (*C.callback)(C.go_cb), PointerStore(&data))
 	// ok: C.call_later(3, LocalCallback(C.go_cb))
+
+	fmt.Println(C.get_hw_pix_fmt())
 }
 
 //export go_cb
