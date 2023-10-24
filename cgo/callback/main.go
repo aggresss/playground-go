@@ -5,7 +5,6 @@ package main
 #include <unistd.h>
 #include <stdio.h>
 
-
 typedef int (callback)(void*, char*, int);
 
 static void call_later(int delay, callback *cb, void* data) {
@@ -15,7 +14,7 @@ static void call_later(int delay, callback *cb, void* data) {
   cb(data, alpha, gamma);
 }
 
-extern int go_cb(void*, char*, int);
+extern int go_cb(void*, char*, size_t);
 
 
 // https://zchee.github.io/golang-wiki/cgo/#export-and-definition-in-preamble
@@ -57,11 +56,13 @@ func main() {
 	C.call_later(1, (*C.callback)(C.go_cb), PointerStore(&data))
 	// ok: C.call_later(3, LocalCallback(C.go_cb))
 
+	C.set_hw_pix_fmt(6)
 	fmt.Println(C.get_hw_pix_fmt())
+
 }
 
 //export go_cb
-func go_cb(a unsafe.Pointer, b *CCHAR, c C.int) C.int {
+func go_cb(a unsafe.Pointer, b *CCHAR, c uintptr) C.int {
 	f := (PointerLoad(a)).(*error)
 	fmt.Println(*f, b, c)
 	return 0

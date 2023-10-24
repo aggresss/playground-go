@@ -46,4 +46,6 @@ func main() {
 	if ptr == nil {
 		fmt.Println("ptr is nil")
 	}
+
+	fmt.Println(C.global_var)
 }

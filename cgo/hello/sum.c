@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "sum.h"
 
+int global_var = 5;
+
 int sum(SUM_POINTER *p, int a, int b) {
   *p = malloc(sizeof(SUM));
   **p = a + b;

@@ -4,6 +4,8 @@
 #ifndef SUM_H
 #define SUM_H
 
+extern int global_var;
+
 typedef int SUM;
 
 typedef SUM *SUM_POINTER;
