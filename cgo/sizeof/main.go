@@ -5,7 +5,7 @@ package main
 #include <stdio.h>
 
 void c_size_of(void* ptr) {
-	printf("%lu\n", sizeof(*ptr));
+	printf("c_size_of: %lu\n", sizeof(*ptr));
 }
 
 typedef struct tou {
@@ -17,8 +17,9 @@ typedef struct tou {
 void c_size_of_tou() {
 	tou t1;
 	struct tou t2;
-	printf("%lu\n", sizeof(t1));
-	printf("%lu\n", sizeof(t2));
+	printf("c_size_of_tou: %lu\n", sizeof(t1));
+	printf("c_size_of_tou: %lu\n", sizeof(t2));
+	c_size_of(&t1);
 }
 
 */
