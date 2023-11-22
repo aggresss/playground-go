@@ -1,4 +1,4 @@
-go 1.21.3
+go 1.21.4
 
 use (
 	./algorithm/bundle
@@ -29,6 +29,7 @@ use (
 	./workbench/errors-demo
 	./workbench/exec-command
 	./workbench/file-case
+	./workbench/flag-case
 	./workbench/generic-case
 	./workbench/gin-case
 	./workbench/go-memory
