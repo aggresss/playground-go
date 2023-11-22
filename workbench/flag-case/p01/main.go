@@ -42,7 +42,7 @@ func (a *argments) parseArgs(args []string) error {
 	fs.Var(&a.alphaFlag, "alphaflag", "alpha flag")
 
 	fs.Usage = func() {
-		fmt.Fprintf(os.Stderr, "flags: %s", args[0])
+		fmt.Fprintf(os.Stderr, "flags: %s\n", args[0])
 		fs.PrintDefaults()
 		os.Exit(1)
 	}
