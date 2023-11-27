@@ -10,6 +10,7 @@ use (
 	./test/gomock2
 	./test/httptest
 	./test/testify
+	./test/ubermock
 	./test/unit
 	./tmp
 	./tools/pprof
