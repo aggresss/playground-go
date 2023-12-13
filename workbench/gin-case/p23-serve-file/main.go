@@ -3,6 +3,7 @@ package main
 import (
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -38,19 +39,10 @@ func noCache() gin.HandlerFunc {
 	}
 }
 
-func cors() gin.HandlerFunc {
-	return func(ctx *gin.Context) {
-		ctx.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		ctx.Writer.Header().Set("Access-Control-Allow-Headers", "*")
-		ctx.Writer.Header().Set("Access-Control-Allow-Credentials", "*")
-		ctx.Writer.Header().Set("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,HEAD")
-	}
-}
-
 func main() {
 	router := gin.Default()
 	router.Use(noCache())
-	router.Use(cors())
+	router.Use(cors.Default())
 	router.SetTrustedProxies([]string{"127.0.0.1"})
 	router.Static("/", "./examples")
 	router.Run(":8080")
