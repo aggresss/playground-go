@@ -72,3 +72,10 @@ func main() {
 
 	s.BindPrinter(PrinterFunc(func() { fmt.Println("upsilon") })).Print()
 }
+
+/*
+	tau
+	sigma
+	rho
+	upsilon
+*/
