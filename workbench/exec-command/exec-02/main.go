@@ -38,9 +38,9 @@ func main() {
 			cmds[i] = exec.Command(execCommand[0], execCommand[1:]...)
 			cmds[i].Start()
 			stat, _ := cmds[i].Process.Wait()
-			fmt.Printf("cmd quit: pid=%d stat=%v\n", stat.Pid(), stat.String())
+			fmt.Printf("cmds[%d] quit: pid=%d stat=%v\n", i, stat.Pid(), stat.String())
 		}(i)
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 200)
 	}
 
 	// wait stop
@@ -52,6 +52,6 @@ func main() {
 	// stop command
 	for i := 0; i < concurrent; i++ {
 		cmds[i].Process.Kill()
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 200)
 	}
 }
