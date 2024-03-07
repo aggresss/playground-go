@@ -3,31 +3,27 @@ package main
 import (
 	"encoding/csv"
 	"log"
+	"math/rand"
 	"os"
+	"strconv"
 )
 
 func main() {
 
-	records := [][]string{
-		{"first_name", "last_name", "occupation"},
-		{"John", "Doe", "gardener"},
-		{"Lucy", "Smith", "teacher"},
-		{"Brian", "Bethamy", "programmer"},
-	}
-
 	f, err := os.Create("users.csv")
-	defer f.Close()
-
 	if err != nil {
-
 		log.Fatalln("failed to open file", err)
 	}
+	defer f.Close()
 
 	w := csv.NewWriter(f)
 	defer w.Flush()
 
-	for _, record := range records {
-		if err := w.Write(record); err != nil {
+	for i := 0; i < 1000; i++ {
+		if err := w.Write([]string{
+			strconv.Itoa(i),
+			strconv.Itoa(rand.Intn(100)),
+		}); err != nil {
 			log.Fatalln("error writing record to file", err)
 		}
 	}
