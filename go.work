@@ -1,4 +1,4 @@
-go 1.21.4
+go 1.21.8
 
 use (
 	./algorithm/bundle
@@ -61,5 +61,6 @@ use (
 	./workbench/triple-dot-case
 	./workbench/type-assertion-case
 	./workbench/unsafe-case
+	./workbench/uuid-case
 	./workbench/web-hello
 )
