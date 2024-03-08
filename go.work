@@ -58,6 +58,7 @@ use (
 	./workbench/sync-case
 	./workbench/tcp-case
 	./workbench/test-case
+	./workbench/time-case
 	./workbench/triple-dot-case
 	./workbench/type-assertion-case
 	./workbench/unsafe-case
