@@ -51,7 +51,6 @@ use (
 	./workbench/protobuf-case
 	./workbench/qiniu-http-demo
 	./workbench/reflect-case
-	./workbench/sdl-case
 	./workbench/select-case
 	./workbench/simple-api
 	./workbench/slice-case
