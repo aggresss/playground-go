@@ -100,11 +100,13 @@ func TestCopyFields(t *testing.T) {
 }
 
 func TestSetField(t *testing.T) {
-	ts := []TestStruct{TestStruct{
-		A: 1,
-		B: 2,
-		s: 3,
-	}}
+	ts := []TestStruct{
+		{
+			A: 1,
+			B: 2,
+			s: 3,
+		},
+	}
 
 	sliceValue := reflect.Indirect(reflect.ValueOf(ts))
 	if sliceValue.Kind() == reflect.Slice {
